@@ -1,0 +1,20 @@
+-if @post.errors.any?
+   .alert.alert-danger
+      %h5
+         =t('common.errors')
+      %ul
+         -@post.errors.full_messages.each do |message|
+            %li=message
+= form_for @post do |f|
+   .form-group
+      =f.label :title
+      =f.text_field :title, class: 'form-control'
+   .form-group
+      =f.label :summary
+      =f.text_area :summary, class: 'form-control'
+   .form-group
+      =f.label :body
+      =f.text_area :body, class: 'form-control'
+   .form-group
+      =f.submit 'save', class: 'btn btn-primary'
+      =link_to 'Back', :back, class: 'btn btn-outline-secondary'

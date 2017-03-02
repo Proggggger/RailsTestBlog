@@ -1,0 +1,26 @@
+/usr/bin/ruby -r ./siteconf20170121-21900-b6dqxw.rb extconf.rb
+checking for unistd.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_call_without_gvl()... yes
+checking for sys/select.h... yes
+checking for poll.h... yes
+checking for sys/epoll.h... yes
+checking for sys/event.h... no
+checking for port.h... no
+checking for sys/resource.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling selector.c
+compiling nio4r_ext.c
+In file included from nio4r_ext.c:7:0:
+../libev/ev.c:1829:31: warning: ‘ev_default_loop_ptr’ initialized and declared ‘extern’
+   EV_API_DECL struct ev_loop *ev_default_loop_ptr = 0; /* needs to be initialised to make it a definition despite extern */
+                               ^
+compiling monitor.c
+linking shared-object nio4r_ext.so
+
+make "DESTDIR=" install
+/bin/ginstall -c -m 0755 nio4r_ext.so ./.gem.20170121-21900-1p8hq6n
